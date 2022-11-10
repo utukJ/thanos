@@ -50,7 +50,7 @@ func TestQuery_WithStores_Loadbalancing(t *testing.T) {
 	t.Cleanup(e.Close)
 
 	// Start monitoring.
-	mon, err := e2emon.Start(e)
+	mon, err := e2emon.Start(e, e2emon.WithCadvisorDisabled())
 	testutil.Ok(t, err)
 	testutil.Ok(t, mon.OpenUserInterfaceInBrowser())
 
